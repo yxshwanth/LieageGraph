@@ -13,4 +13,7 @@ pytest-asyncio==0.21.1
 opentelemetry-api==1.21.0
 opentelemetry-sdk==1.21.0
 opentelemetry-exporter-jaeger==1.21.0
+sentence-transformers>=2.2.0
+tqdm>=4.66.0
+httpx>=0.24.0
 
