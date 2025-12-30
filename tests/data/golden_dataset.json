@@ -1,0 +1,72 @@
+[
+  {
+    "question": "What feeds into the revenue dashboard?",
+    "expected_answer": "The revenue_dashboard depends on revenue_daily, which is built from order_clean and users.",
+    "expected_tables": ["revenue_dashboard", "revenue_daily", "order_clean", "users"],
+    "difficulty": "easy",
+    "category": "end_to_end_lineage"
+  },
+  {
+    "question": "What are the upstream dependencies of revenue_daily?",
+    "expected_answer": "The revenue_daily table depends on order_clean and users.",
+    "expected_tables": ["revenue_daily", "order_clean", "users"],
+    "difficulty": "easy",
+    "category": "upstream_dependencies"
+  },
+  {
+    "question": "Which raw tables feed into order_clean?",
+    "expected_answer": "The order_clean table is derived from raw orders data.",
+    "expected_tables": ["order_clean", "orders"],
+    "difficulty": "easy",
+    "category": "direct_upstream"
+  },
+  {
+    "question": "Trace the full lineage from orders to the revenue dashboard.",
+    "expected_answer": "Data flows from orders to order_clean, then to revenue_daily, and finally to revenue_dashboard.",
+    "expected_tables": ["orders", "order_clean", "revenue_daily", "revenue_dashboard"],
+    "difficulty": "medium",
+    "category": "end_to_end_lineage"
+  },
+  {
+    "question": "Does user data contribute to the revenue dashboard?",
+    "expected_answer": "Yes, users is used together with order_clean to build revenue_daily, which feeds revenue_dashboard.",
+    "expected_tables": ["users", "order_clean", "revenue_daily", "revenue_dashboard"],
+    "difficulty": "medium",
+    "category": "impact_analysis"
+  },
+  {
+    "question": "What is the direct dependency of the revenue dashboard?",
+    "expected_answer": "The revenue_dashboard directly depends on revenue_daily.",
+    "expected_tables": ["revenue_dashboard", "revenue_daily"],
+    "difficulty": "easy",
+    "category": "direct_upstream"
+  },
+  {
+    "question": "Which tables would be affected if order_clean failed to load?",
+    "expected_answer": "If order_clean fails, revenue_daily and revenue_dashboard will also be affected.",
+    "expected_tables": ["order_clean", "revenue_daily", "revenue_dashboard"],
+    "difficulty": "medium",
+    "category": "impact_analysis"
+  },
+  {
+    "question": "What columns are described for the users table in the lineage data?",
+    "expected_answer": "The users table includes user_id, email, name, and created_at.",
+    "expected_tables": ["users"],
+    "difficulty": "easy",
+    "category": "metadata_lookup"
+  },
+  {
+    "question": "What columns are described for the orders table in the lineage data?",
+    "expected_answer": "The orders table includes order_id, user_id, amount, and order_date.",
+    "expected_tables": ["orders"],
+    "difficulty": "easy",
+    "category": "metadata_lookup"
+  },
+  {
+    "question": "If the users table is missing, which downstream tables or dashboards are impacted?",
+    "expected_answer": "Missing users impacts revenue_daily and the revenue_dashboard that depends on it.",
+    "expected_tables": ["users", "revenue_daily", "revenue_dashboard"],
+    "difficulty": "medium",
+    "category": "freshness_impact"
+  }
+]
