@@ -19,7 +19,7 @@ tqdm>=4.66.0
 httpx>=0.24.0
 langgraph==0.0.32
 langchain-openai==0.0.7
-langsmith==0.1.0
+langsmith>=0.0.77,<0.1.0
 anthropic==0.7.0
 typing-extensions==4.9.0
 
