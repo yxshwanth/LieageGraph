@@ -43,6 +43,15 @@ jobs:
       run: |
         python -c "import psycopg2; conn = psycopg2.connect('postgresql://postgres:postgres@localhost/postgres'); conn.autocommit = True; cur = conn.cursor(); cur.execute('CREATE DATABASE semantic_lineage'); cur.close(); conn.close()" || true
 
+    - name: Load sample data
+      env:
+        DATABASE_URL: postgresql://postgres:postgres@localhost/semantic_lineage
+      run: |
+        echo "Loading sample data into databases..."
+        python src/graph/loader.py || echo "Graph loader completed"
+        python src/vector/loader.py || echo "Vector loader completed"
+        echo "Sample data loaded successfully"
+
     - name: Run unit tests
       env:
         DATABASE_URL: postgresql://postgres:postgres@localhost/semantic_lineage
