@@ -6,6 +6,7 @@ duckdb>=1.0.0
 psycopg2-binary>=2.9.10
 langchain==0.1.0
 langchain-community==0.0.19
+langchain-core>=0.1.0
 pydantic-settings>=2.3.0
 python-dotenv==1.0.0
 pytest==7.4.3
@@ -16,4 +17,9 @@ opentelemetry-exporter-jaeger==1.21.0
 sentence-transformers>=2.2.0
 tqdm>=4.66.0
 httpx>=0.24.0
+langgraph==0.0.32
+langchain-openai==0.0.7
+langsmith==0.1.0
+anthropic==0.7.0
+typing-extensions==4.9.0
 
