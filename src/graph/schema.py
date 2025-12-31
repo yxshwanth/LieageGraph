@@ -32,7 +32,7 @@ class GraphStore:
                    environment variable or defaults to localhost with current user.
         """
         if not db_url:
-            # Default to current user (yash) or from environment
+            # Default to current user or from environment
             default_user = os.getenv("USER", "postgres")
             db_url = os.getenv("DATABASE_URL", f"postgresql://{default_user}@localhost/semantic_lineage")
         
